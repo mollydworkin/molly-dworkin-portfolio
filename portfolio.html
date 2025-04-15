@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="css/html5reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+  <title>Molly Dworkin's Portfolio</title>
+</head>
+<body>
+  <header>
+    <div class="skip" tabindex="0"><a href="#main">Skip to Main Content</a></div>
+    <div class="header-top">
+      <h1 class="site-title">Molly Dworkin's Portfolio</h1>
+      <button class="menu-toggle" aria-label="Toggle Navigation">&#9776;</button>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        <li>
+          <a href="https://drive.google.com/file/d/1zIPyRPZcD_Sfg03nk8NHsU3Tv0jiNasr/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <h2 class="portfolio-heading">Portfolio</h2>
+    <!-- <p class="portfolio-intro">
+        Click on the buttons to filter a category:
+    </p> -->
+
+    <!-- Filter Buttons -->
+    <div id="myBtnContainer">
+      <button class="btn active" onclick="filterSelection('all')">Show All</button>
+      <button class="btn" onclick="filterSelection('ux')">UX</button>
+      <button class="btn" onclick="filterSelection('coding')">Coding</button>
+    </div>
+
+    <!-- Filterable Grid -->
+    <div class="row">
+
+
+    <!-- UX Projects -->  
+    <div class="column ux show">
+         <div class="project-grid">
+            <a href="https://www.figma.com/design/06dnvzwhg0OlWJRVkRgOQp/SummerHive?node-id=0-1&t=axRjmvSNVwYcJpAB-1" class="project-tile" id="summerhive-tile">
+            <div class="project-content">
+                <h2>SummerHive</h2>
+                <p>SummerHive is a student housing platform in progress, built to help college interns find and list short-term subleases. So far, I’ve completed high-fidelity onboarding designs focused on trust and ease of use. The full platform will eventually include listing features, filters by city and company, and a secure messaging system for subleasers and renters.</p>
+            </div>
+            </a>
+            <a href="https://www.figma.com/design/6Nzp2SwlYgaPxt01wZRyHA/Assignment-6---Creating-Detailed-Wireframe-Designs--Copy-?node-id=0-1&t=YYhufwpKSKHcx5J8-1" class="project-tile" id="tigersapp-tile">
+                <div class="project-content">
+                    <h2>SI 311 Detroit Tigers VIP App Wireframes</h2>
+                    <p>This project focused on designing low-fidelity wireframes for a mobile app that enhances the experience of Detroit Tigers season ticket holders. The app includes features like early parking alerts, discounts at concessions, pregame dugout access, and social sharing. I created 8 key screens that showcase how users would interact with these benefits. The design emphasizes simplicity, quick access, and making fans feel like VIPs on game day.</p>
+                </div>
+                </a>
+        </div>
+        </div>
+          
+
+      <!-- Coding Projects -->
+      <div class="column coding show">
+        <div class="project-grid">
+          <a href="https://mollydworkin.github.io/client_project_w25/" target="_blank" class="project-tile" id="client-project">
+            <div class="project-content">
+              <h2>SI 339 Client Project: Student Resource Portal</h2>
+              <p>Built a responsive resource website for UMSI students with mobile, tablet, and desktop views. Developed using HTML, CSS, and JavaScript with a mobile-first approach. Prioritized accessibility, semantic structure, and alignment with UM branding guidelines.</p>
+            </div>
+          </a>
+          <a href="https://github.com/mollydworkin/hw3_2025" target="_blank" class="project-tile" id="hw3-tile">
+            <div class="project-content">
+              <h2>SI 339 CSS Grid Layout Homework</h2>
+              <p>Recreated a multi-section webpage using only CSS Grid. Implemented skip link, focus styles, and responsive media queries. Emphasized accessibility and semantic layout.</p>
+            </div>
+          </a>
+
+          <a href="https://github.com/mollydworkin/hw2-w25" target="_blank" class="project-tile" id="hw2-tile">
+            <div class="project-content">
+              <h2>SI 339 Simple CSS Homework</h2>
+              <p>Styled a page using the box model, hex colors, and external stylesheets. Focused on semantic HTML and responsive layout.</p>
+            </div>
+          </a>
+
+          <a href="https://github.com/mollydworkin/-Data-Oriented-Programming-SI206-Final-Collaborative-Project" target="_blank" class="project-tile" id="si206-tile">
+            <div class="project-content">
+              <h2>SI 206 Final Project</h2>
+              <p>Analyzed concert pricing using Spotify and Ticketmaster APIs. Visualized data with Python and Matplotlib, stored in SQLite.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Simple Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-box">
+      <span class="close">&times;</span>
+      <h2 id="modalTitle">Project Title</h2>
+      <img id="modalImg" src="" alt="" style="width:100%; border-radius:10px;">
+      <p id="modalTools"><strong>Tools Used:</strong> </p>
+      <p id="modalSkills"><strong>Skills:</strong> </p>
+      <p><a id="modalGithub" href="#" target="_blank">View on GitHub</a></p>
+
+    </div>
+  </div>
+  
+  
+
+  <!-- JS for Filters and Menu -->
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
+    // Filtering Logic
+    filterSelection("all");
+    function filterSelection(c) {
+      const x = document.getElementsByClassName("column");
+      const category = c === "all" ? "" : c;
+      for (let i = 0; i < x.length; i++) {
+        x[i].classList.remove("show");
+        if (x[i].className.indexOf(category) > -1 || category === "") {
+          x[i].classList.add("show");
+        }
+      }
+    }
+
+    const btns = document.getElementsByClassName("btn");
+    for (let i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function () {
+        const current = document.querySelector(".btn.active");
+        if (current) current.classList.remove("active");
+        this.classList.add("active");
+      });
+    }
+  </script>
+  <script>
+    const modal = document.getElementById("myModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalImg = document.getElementById("modalImg");
+    const modalTools = document.getElementById("modalTools");
+    const modalSkills = document.getElementById("modalSkills");
+    const closeBtn = document.querySelector(".close");
+    const modalGithub = document.getElementById("modalGithub");
+
+  
+    const tiles = document.querySelectorAll(".project-tile");
+  
+    tiles.forEach(tile => {
+      tile.addEventListener("click", function(e) {
+        e.preventDefault();
+  
+        const id = this.id;
+  
+        if (id === "summerhive-tile") {
+          modalTitle.textContent = "SummerHive";
+          modalImg.src = "images/summerhive.png";
+          modalTools.textContent = "Tools Used: Figma";
+          modalGithub.href = "https://www.figma.com/design/06dnvzwhg0OlWJRVkRgOQp/SummerHive";
+          modalSkills.textContent = "Skills: Figma, UX/UI, Wireframing";
+          modalGithub.textContent = "View on Figma";
+          
+        }
+
+        else if (id === "tigersapp-tile") {
+            modalTitle.textContent = "SI 311 Detroit Tigers VIP App Wireframes";
+            modalImg.src = "images/tigers.png";
+            modalTools.textContent = "Tools Used: Figma, Adobe Firefly";
+            modalGithub.href = "https://www.figma.com/design/6Nzp2SwlYgaPxt01wZRyHA/Assignment-6---Creating-Detailed-Wireframe-Designs--Copy-?node-id=0-1&t=YYhufwpKSKHcx5J8-1";
+            modalSkills.textContent = "Skills: High-fidelity Wireframing , UX/UI, AI Image Generation";
+            modalGithub.textContent = "View on Figma";
+          }
+  
+        else if (id === "hw3-tile") {
+          modalTitle.textContent = "SI 339 CSS Grid Layout Homework";
+          modalImg.src = "images/hw3.png";
+          modalTools.textContent = "Tools Used: VS Code, Github";
+          modalGithub.href = "https://github.com/mollydworkin/hw3_2025";
+          modalSkills.textContent = "Skills: CSS Grid, Media Queries, Accessibility";
+          modalGithub.textContent = "View on Github";
+        }
+
+        else if (id === "hw2-tile") {
+            modalTitle.textContent = "SI 339 Simple CSS Homework";
+            modalImg.src = "images/hw2.png";
+            modalTools.textContent = "Tools Used: VS Code, Github";
+            modalGithub.href = "https://github.com/mollydworkin/hw2-w25";
+            modalSkills.textContent = "Skills: CSS, HTML, Box Model, Hex Colors ";
+            modalGithub.textContent = "View on Github";
+          }
+  
+        else if (id === "si206-tile") {
+          modalTitle.textContent = "SI 206 Final Project";
+          modalImg.src = "images/206.png";
+          modalGithub.href = "https://github.com/mollydworkin/-Data-Oriented-Programming-SI206-Final-Collaborative-Project";
+          modalTools.textContent = "Tools Used: Python, SQLite";
+          modalSkills.textContent = "Skills: APIs, Data Viz, Matplotlib";
+          modalGithub.textContent = "View Project Report on Github";
+        }
+        
+        else if (id === "client-project") {
+            modalTitle.textContent = "SI 339 Client Project: Student Resource Portal";
+            modalImg.src = "images/clientproject.png";
+            modalGithub.href = "https://github.com/mollydworkin/client_project_w25";
+            modalTools.textContent = "Tools Used: VS Code, Github";
+            modalSkills.textContent = "Skills: HTML, CSS, JavaScript";
+            modalGithub.textContent = "View on Github";
+          }
+
+        modal.style.display = "flex";
+      });
+    });
+  
+    closeBtn.onclick = () => modal.style.display = "none";
+    window.onclick = (e) => {
+      if (e.target == modal) modal.style.display = "none";
+    };
+  </script>
+  
+  
+</body>
+</html>
