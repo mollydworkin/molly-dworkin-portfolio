@@ -67,6 +67,7 @@ footer {
     white-space: nowrap;
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
+    font-size: 25px;
     color: #FFFF;
     font-weight: 500;
     padding: 10px 15px;
@@ -101,6 +102,7 @@ footer {
         display: block;
     }
 
+
     nav {
         width: 100%;
     }
@@ -128,33 +130,16 @@ footer {
 }
 
 h1{
-    text-align: center;
+    text-align: left;
+    margin-left: 50px;
+    margin-top: 50px;
     font-weight: bolder;
-    font-size:xx-large;
-    margin-top: 40px;
+    font-size:60px;
     font-family: 'Montserrat', sans-serif;
     color: #00274C;
    
 }
-
-.about-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px; /* space between image and text */
-    flex-wrap: wrap; /* makes it mobile-friendly */
-    padding: 20px;
-    max-width: 900px;
-    margin: 0 auto;
-    font-family: 'Montserrat', sans-serif;
-  }
   
-  .about-photo {
-    width: 350px;
-    height: auto;
-    border-radius: 12px;
-    border: 4px #00274C solid;
-  }
   
   .about-text {
     flex: 2;
@@ -176,15 +161,15 @@ h1{
     gap: 40px;
     padding: 40px;
     max-width: 1100px;
-    margin: 0 auto;
     flex-wrap: wrap;
+    font-family: 'Montserrat', sans-serif;
   }
   
   .about-photo-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 1;
+    flex: 1rem;
   }
   
   .about-photo {
@@ -192,7 +177,6 @@ h1{
     height: auto;
     border-radius: 12px;
     border: 4px solid #00274C;
-    object-fit: cover;
   }
   
   .icon-links {
@@ -471,3 +455,4 @@ h1{
   font-size: 24px;
   cursor: pointer;
 }
+
