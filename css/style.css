@@ -49,6 +49,15 @@ main:focus {
   top: 10px;
 }
 
+a:focus, button:focus {
+  outline: 3px solid #72b3e1;
+  outline-offset: 4px;
+}
+.close:focus {
+  outline: 3px solid #72b3e1; /* or any color you want */
+  border-radius: 4px;
+}
+
 
   /* Header */
 
