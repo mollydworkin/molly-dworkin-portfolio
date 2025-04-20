@@ -10,8 +10,8 @@
 </head>
 
 <body>
+  <a href="#main" class="skip-link">Skip to Main Content</a>
   <header>
-    <div class="skip" tabindex="0"><a href="#main">Skip to Main Content</a></div>
 
     <div class="header-top">
       <h1 class="site-title">Molly Dworkin's Portfolio</h1>
@@ -31,9 +31,18 @@
     </nav>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <h1>About Me</h1>
     <div class="about-container">
+      <div class="about-text">
+        <p>
+          <span>Hi! I'm Molly Dworkin. I'm a student at the University of Michigan studying Information Analysis, where I focus on turning data into insights that drive better decisions.</span><br>
+          <span>I'm especially interested in how data, technology, and human behavior come together to shape the way we live and interact online.</span><br>
+          <span>I love using data to solve real-world problems, whether it's optimizing user experiences or helping organizations make smarter, more informed choices.</span><br>
+          <span>I'm excited to keep exploring how analytical thinking and creative problem-solving can work hand-in-hand to make a meaningful impact.</span>
+        </p>
+
+    </div>
       <div class="about-photo-container">
         <img src="images/headshot.jpg" alt="Molly Dworkin headshot" class="about-photo">
 
@@ -47,42 +56,26 @@
           <a href="https://drive.google.com/file/d/1zIPyRPZcD_Sfg03nk8NHsU3Tv0jiNasr/view?usp=sharing" target="_blank">
             <img src="images/resume.png" alt="Resume icon" class="icon-button">
           </a>
+          <a href="https://github.com/mollydworkin" target="_blank">
+            <img src="images/git.png" alt="Github icon" class="icon-button">
+          </a>
         </div>
       </div>
 
-      <div class="about-text">
-        <p>
-          <span>Hi! I'm Molly Dworkin. I'm a student at the University of Michigan studying Information Analysis, where I focus on turning data into insights that drive better decisions.</span><br>
-          <span>I'm especially interested in how data, technology, and human behavior come together to shape the way we live and interact online.</span><br>
-          <span>I love using data to solve real-world problems, whether it's optimizing user experiences or helping organizations make smarter, more informed choices.</span><br>
-          <span>I'm excited to keep exploring how analytical thinking and creative problem-solving can work hand-in-hand to make a meaningful impact.</span>
-        </p>
-      </div>
-    </div>
-    <h2>Skills</h2>
-    <div class="skills-text">
-      <p>
-        <span> 
-          <ul>
-            <li>Python</li>
-            <li>SQL</li>
-            <li>Tableau</li>
-            <li>JavaScript</li>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>Figma</li>
-            <li>Wireframing</li>
-            <li>Excel</li>
-            <li>Power BI</li>
-          </ul>
-        </span>
-      </p>
-
-    </div>
   </main>
   <footer>
-    <p>&copy; 2025 Molly Dworkin. All rights reserved.</p>
+    <div class="footer-contact">
+      <h2>Contact Me</h2>
+      <p>I'd love to connect — feel free to reach out!</p>
+      
+      <p class="contact-text">
+        Email: <a href="mailto:mdworkin@umich.edu">mdworkin@umich.edu</a><br>
+        Phone: <a href="tel:13102726570">(310) 272-6570</a>
+      </p>
+      <p class="copyright">&copy; 2025 Molly Dworkin. All rights reserved.</p>
+    </div>
   </footer>
+  
   
   <script>
     const toggle = document.querySelector('.menu-toggle');
@@ -92,5 +85,11 @@
       navLinks.classList.toggle('show');
     });
   </script>
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+  </script>
+  
 </body>
 </html>

@@ -1,57 +1,117 @@
+body{
+  background-color: #ddd;
+}
 /* SKIP TO MAIN */
-.skip{
-    position: absolute;
-    top: -40px;
-    left: 10px;
-    background-color: navy;
 
-
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  background-color: white;
+  color: #00274C;
+  padding: 10px 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  text-decoration: none;
+  z-index: 1000;
+  transition: top 0.3s ease;
 }
 
-.skip a {
-    color: black;
-    font-size: 18px;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+.skip-link:focus {
+  top: 10px;
+}
+.btn:focus {
+  outline: 3px solid #72b3e1;
+  outline-offset: 3px;
+  border-radius: 4px;
+  background-color: #eef6fb;
 }
 
-.skip:focus {
-    top: 2rem;
-    background-color: white;
-    color: #00274C;
-  }
 
+main:focus {
+  outline: 3px solid #72b3e1;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  background-color: #fff;
+  color: #00274C;
+  padding: 10px 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  z-index: 1000;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 10px;
+}
 
 
   /* Header */
 
   header {
+    background-color: #00274C;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: #00274C;
+    padding: 30px 30px;
     border-bottom: 1px solid #ddd;
     
 }
 /* Footer */
-footer {
-    background-color: #00274C;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 0.9em;
-    margin-top: 60px;
-    font-family: 'Montserrat', sans-serif;
-  }
+.footer-contact h2 {
+  font-size: 24px;
+  color: #72b3e1;
+  margin-bottom: 10px;
+}
 
-/* Title styling */
+
+.footer-contact a {
+  color: #72b3e1;
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+.contact-text {
+  margin-top: 10px;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+footer {
+  background-color: #00274C;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+/* Title styling & transitions */
 .site-title {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.8em;
     margin: 0;
     color: #FFFF;
 }
+
+.site-title {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* When loaded */
+body.loaded .site-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 /* Remove default list styles and layout links in a row */
 .nav-links {
@@ -97,7 +157,7 @@ footer {
     header {
         flex-wrap: wrap;
     }
-
+    
     .menu-toggle {
         display: block;
     }
@@ -121,6 +181,33 @@ footer {
     }
 }
 
+/* Nav Animations */
+.nav-links li {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+/* Animate each one slightly after the other */
+body.loaded .nav-links li:nth-child(1) {
+  transition-delay: 0.3s;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body.loaded .nav-links li:nth-child(2) {
+  transition-delay: 0.6s;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body.loaded .nav-links li:nth-child(3) {
+  transition-delay: 0.9s;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 /* Wrap the top part of the header (title + menu button) */
 .header-top {
     width: 100%;
@@ -130,7 +217,7 @@ footer {
 }
 
 h1{
-    text-align: left;
+    text-align: center;
     margin-left: 50px;
     margin-top: 50px;
     font-weight: bolder;
@@ -145,7 +232,7 @@ h1{
     flex: 2;
     max-width: 100%;
     padding: 40px 0; /* top & bottom padding */
-    font-size: 18px;
+    font-size: 25px;
     color: #00274C;
   }
   
@@ -156,11 +243,11 @@ h1{
   
   .about-container {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 40px;
-    padding: 40px;
-    max-width: 1100px;
+    padding: 50px;
     flex-wrap: wrap;
     font-family: 'Montserrat', sans-serif;
   }
@@ -169,14 +256,14 @@ h1{
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 1rem;
+    flex: 1;
   }
   
   .about-photo {
-    width: 300px;
+    width: 400px;
     height: auto;
-    border-radius: 12px;
-    border: 4px solid #00274C;
+    border-radius: 10px;
+    border: 5px solid #00274C;
   }
   
   .icon-links {
@@ -193,7 +280,7 @@ h1{
   }
   
   .icon-button:hover {
-    transform: scale(1.1);
+    transform: scale(1.5);
   }
   
  
@@ -208,7 +295,7 @@ h1{
     .about-container {
       flex-direction: column;
       align-items: center;
-      text-align: center;
+      text-align: left;
     }
   
     .about-photo {
@@ -226,7 +313,10 @@ h1{
     }
   
     h1 {
-      font-size: 1.8em;
+      font-size: 60px;
+      text-align: left;
+      margin-left: 70px;
+      
     }
   
     .site-title {
@@ -278,7 +368,7 @@ h1{
     }
   
     h1 {
-      font-size: 1.5em;
+      font-size: 50px;
     }
   
     footer {
@@ -287,16 +377,7 @@ h1{
     }
   }
   
-  /* CODING */
-  .coding-intro {
-    max-width: 800px;
-    margin: 0 auto 40px auto;
-    padding: 20px;
-    font-size: 1.1em;
-    text-align: center;
-    line-height: 1.6;
-    font-family: 'Montserrat', sans-serif;
-  }
+  /* Portfolio Page */
   
   .project-grid {
     display: grid;
@@ -306,6 +387,16 @@ h1{
     max-width: 1100px;
     margin: 0 auto;
   }
+  
+  /* .column is now the grid item that gets filtered */
+  .column {
+    display: none; /* hide by default */
+  }
+
+  .column.show {
+    display: block;
+  }
+
   
   .project-tile {
     background-color: #f4f4f4;
@@ -317,12 +408,13 @@ h1{
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
+    display: block;
   }
   
   .project-tile:hover {
     transform: translateY(-8px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    background-color: #eaf1f9;
+    background-color: #757c8d;
   }
   
   .project-content h2 {
@@ -351,14 +443,10 @@ h1{
   padding: 8px;
 }
 .column {
-  float: left;
-  width: 100%;
-  display: none;
+  display: none; /* hide by default, shown via .show class */
 }
-@media (min-width: 700px) {
-  .column {
-    width: 50%;
-  }
+.column.show {
+  display: block;
 }
 .show {
   display: block;
@@ -392,11 +480,6 @@ h1{
 }
 
 /* Project Grid */
-.project-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
 .project-tile {
   text-decoration: none;
   color: inherit;
@@ -410,7 +493,7 @@ h1{
 .portfolio-heading {
   text-align: center;
     font-weight: bolder;
-    font-size:xx-large;
+    font-size:60px;
     margin-top: 40px;
     font-family: 'Montserrat', sans-serif;
     color: #00274C;
@@ -438,16 +521,34 @@ h1{
 
 .modal-box {
   background: white;
-  padding: 20px;
-  max-width: 500px;
+  padding: 70px;
+  max-width: 700px;
   width: 90%;
-  margin: auto;
   border-radius: 10px;
   position: relative;
-  text-align: center;
+  text-align: left;
   font-family: 'Montserrat', sans-serif;
 }
 
+#modalTitle{
+  font-size: 30px;           
+  text-align: center;       
+  color: #00274C;           
+  margin-bottom: 20px;      
+  font-family: 'Montserrat', sans-serif;
+}
+
+#modalDescript{
+  margin-bottom: 15px;
+}
+
+#modalTools{
+  margin-bottom: 15px;
+}
+
+#modalSkills{
+  margin-bottom: 15px;
+}
 .close {
   position: absolute;
   top: 10px;
